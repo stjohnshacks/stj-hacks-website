@@ -40,8 +40,8 @@ function Hero() {
       {/* atmospheric image */}
       <div className="absolute inset-0 opacity-30">
         <img
-          src="https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5f0d83d50_generated_493bca06.jpg"
-          alt=""
+          src="https://base44.app/api/apps/6ab416dccb1b0eada1dceb29/files/mp/public/6ab416dccb1b0eada1dceb29/47a79885e_IMG_2681_copy.JPG"
+          alt="Students collaborating at St. John's Hacks"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-sju-void via-sju-void/80 to-sju-void/40" />

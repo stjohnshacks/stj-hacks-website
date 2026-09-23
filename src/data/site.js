@@ -3,6 +3,9 @@
 // Organizers: update this file to change site content. No code edits needed.
 // ===================================================================
 
+// Hosted event photography base URL (extracted from organizer uploads).
+const photoBase = "https://base44.app/api/apps/6ab416dccb1b0eada1dceb29/files/mp/public/6ab416dccb1b0eada1dceb29/";
+
 // --- Brand / Social ---
 export const site = {
   name: "St. John's Hacks",
@@ -188,13 +191,9 @@ export const pastEvents = [
     duration: "12 HOURS",
     attendance: "",
     days: "1 DAY",
-    heroImage: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/a011dd93c_generated_01a1aa62.jpg",
-    gallery: [
-      "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/a011dd93c_generated_01a1aa62.jpg",
-      "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/7790d8128_generated_e2ed93db.jpg",
-    ],
+    heroImage: photoBase + "fd7a12ed8_IMG_8590_copy.JPG",
     recap:
-      "2025 marked the inaugural St. John's Hacks — a 12-hour, student-led hackathon at St. Augustine Hall focused on technical building and innovation. Beginner-friendly, with workshops, projects, mentors, judging, and prizes. The beginning of something bigger.",
+      "The inaugural St. John's Hacks launched as a one-day, 12-hour hackathon at St. Augustine Hall — beginner-friendly and built for first-time builders. Students came together to attend workshops, form teams, build projects, and present their work to mentors and judges. It was the start of something bigger.",
     stats: [
       { value: "12", label: "HOURS" },
       { value: "1", label: "DAY" },
@@ -206,6 +205,40 @@ export const pastEvents = [
       { name: "Maspeth Federal Savings", year: 2025 },
       { name: "St. John's University", year: 2025 },
     ],
+    photos: {
+      atmosphere: [
+        { src: photoBase + "7ffca2e38_IMG_2568_copy.JPG", alt: "Students attending a presentation at St. John's Hacks 2025" },
+        { src: photoBase + "a8fd05954_IMG_2585_copy.JPG", alt: "Participants at St. John's Hacks 2025" },
+        { src: photoBase + "9b1cfeb16_IMG_2638_copy.JPG", alt: "Event atmosphere at St. John's Hacks 2025" },
+      ],
+      community: [
+        { src: photoBase + "c1208f9ff_IMG_2676_copy.JPG", alt: "A team presenting their project at St. John's Hacks 2025" },
+        { src: photoBase + "1fff69d4d_IMG_2680_copy.JPG", alt: "Students collaborating at St. John's Hacks 2025" },
+        { src: photoBase + "47a79885e_IMG_2681_copy.JPG", alt: "Hackathon participants at St. John's Hacks 2025" },
+        { src: photoBase + "0fb3fc9f3_IMG_2685_copy.JPG", alt: "Project showcase at St. John's Hacks 2025" },
+        { src: photoBase + "6e69a6b95_IMG_2687_copy.JPG", alt: "Teams at St. John's Hacks 2025" },
+      ],
+      organizers: [
+        { src: photoBase + "4e3e228c4_IMG_2567_copy.JPG", alt: "Organizers and community at St. John's Hacks 2025" },
+        { src: photoBase + "3254c2379_IMG_5139_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
+        { src: photoBase + "01a22674a_IMG_5151_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
+        { src: photoBase + "9e724026b_IMG_5187_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
+        { src: photoBase + "b4f5f35ba_IMG_5211_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
+        { src: photoBase + "c983d4eb2_IMG_5230_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
+        { src: photoBase + "916fd4ebb_IMG_5233_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
+      ],
+      gallery: [
+        { src: photoBase + "5f33727e1_IMG_8583_copy.JPG", alt: "Large group photo from St. John's Hacks 2025", wide: true },
+        { src: photoBase + "7ffca2e38_IMG_2568_copy.JPG", alt: "Students at a presentation at St. John's Hacks 2025" },
+        { src: photoBase + "c1208f9ff_IMG_2676_copy.JPG", alt: "A team presenting their project at St. John's Hacks 2025" },
+        { src: photoBase + "47a79885e_IMG_2681_copy.JPG", alt: "Hackathon participants at St. John's Hacks 2025", wide: true },
+        { src: photoBase + "102369f0e_IMG_2571_copy.JPG", alt: "St. John's Hacks 2025" },
+        { src: photoBase + "bab6dcdde_IMG_2577_copy.JPG", alt: "St. John's Hacks 2025" },
+        { src: photoBase + "1fff69d4d_IMG_2680_copy.JPG", alt: "Students collaborating at St. John's Hacks 2025" },
+        { src: photoBase + "6e69a6b95_IMG_2687_copy.JPG", alt: "Teams at St. John's Hacks 2025" },
+        { src: photoBase + "fd7a12ed8_IMG_8590_copy.JPG", alt: "Students gathered at the inaugural St. John's Hacks in 2025", wide: true },
+      ],
+    },
     devpost: "",
     instagram: "",
   },
