@@ -2,7 +2,7 @@ import React from "react";
 import PageHero from "@/components/PageHero";
 import Reveal, { SectionLabel } from "@/components/Reveal";
 import Button from "@/components/ui/stj-button";
-import { pastEvents } from "@/data/site";
+import { site, pastEvents } from "@/data/site";
 
 const timeline = [
   {
@@ -97,6 +97,26 @@ export default function About() {
               Students from every major and experience level are welcome. You don't need to be an expert — you just need to start.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* OFFICIAL BRAND / JOHNNY */}
+      <section className="py-20 lg:py-28 bg-sju-n1 border-y border-sju-n3">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            <Reveal className="lg:w-2/5 flex justify-center">
+              <div className="bg-white p-6 sm:p-8 border border-sju-n3">
+                <img src={site.logo} alt="St. John's Hacks official logo — Johnny Thunderbird framed in curly braces above the St. John's Hacks wordmark" className="w-full max-w-[320px] h-auto object-contain" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.1} className="lg:w-3/5">
+              <SectionLabel index="—" className="mb-4">The Mark</SectionLabel>
+              <h2 className="display-text text-4xl sm:text-5xl lg:text-6xl mb-4">JOHNNY<br /><span className="text-sju-red">THUNDERBIRD.</span></h2>
+              <p className="text-lg text-sju-grey leading-relaxed max-w-lg">
+                Johnny Thunderbird is the spirit of St. John's Hacks — framed in code, built for builders. The official mark carries the St. John's Hacks identity across every edition.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

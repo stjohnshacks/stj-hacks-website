@@ -10,12 +10,15 @@ export const site = {
   compactMark: "{ STJ }",
   university: "St. John's University",
   location: "Queens, New York",
-  // Upload an official Johnny Thunderbird PNG/SVG, then set this URL.
+  // Official St. John's Hacks logo (Johnny Thunderbird + braces + wordmark).
+  // Use selectively: About, footer, brand/history, social sharing. Do not recolor.
+  logo: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5b184fd12_OfficialLogo.png",
+  // Standalone Johnny Thunderbird PNG (without wordmark) — upload when available.
   mascotImage: "",
   socials: {
-    instagram: "https://instagram.com/stjohnshacks",
+    instagram: "https://www.instagram.com/stjhacks/",
     linkedin: "https://linkedin.com/company/stjohnshacks",
-    discord: "https://discord.gg/stjohnshacks",
+    discord: "https://discord.gg/3GDFszAswT",
     devpost: "https://devpost.com/stjohnshacks",
     acm: "https://stjohns.edu/acm",
   },
@@ -134,10 +137,12 @@ export const pastEvents = [
     techLine: "{ we went bigger }",
     dateLabel: "FEBRUARY 7–8, 2026",
     location: "St. John's University",
-    venue: "DAC Ballroom",
+    venue: "St. Augustine Hall",
     duration: "30 HOURS",
     attendance: "60+",
     days: "2 DAYS",
+    teamSize: "2–4",
+    recapUrl: "https://www.stjohns.edu/news-media/news/2026-02-23/hackathon-invites-st-johns-students-build-code-and-innovate",
     heroImage: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5f0d83d50_generated_493bca06.jpg",
     gallery: [
       "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/7790d8128_generated_e2ed93db.jpg",
@@ -146,20 +151,22 @@ export const pastEvents = [
       "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5f0d83d50_generated_493bca06.jpg",
     ],
     recap:
-      "The second annual St. John's Hacks expanded from a one-day hackathon into a two-day, roughly 30-hour experience. 60+ students came together for sponsor-backed challenges, workshops, mentorship, building, presentations, judging, prizes, and community.",
+      "The second annual St. John's Hacks grew from a one-day event into a two-day, 30-hour build at St. Augustine Hall. More than 60 undergraduates, graduate students, and recent alumni — across all experience levels, including first-time builders — collaborated on projects spanning artificial intelligence, cybersecurity, machine learning, and software development. The weekend paired hands-on building with workshops, mentorship, sponsor challenges, presentations, judging, and prizes, plus a visit from Johnny Thunderbird.",
     stats: [
       { value: "60+", label: "STUDENTS" },
       { value: "30", label: "HOURS" },
       { value: "2", label: "DAYS" },
+      { value: "2–4", label: "PER TEAM" },
     ],
+    // Project photo filenames (upload pending): AdaptIQ=DSC_0495, SlideGen/ToltIQ=IMG_6931, Repofy=IMG_6942, GitHire=IMG_6959
     winners: [
-      { track: "TOLTIQ TRACK", place: "1st", project: "SlideGen AI", team: "", tech: "", devpost: "" },
-      { track: "TOLTIQ TRACK", place: "2nd", project: "Sliders", team: "", tech: "", devpost: "" },
-      { track: "TOLTIQ TRACK", place: "3rd", project: "AdaptIQ", team: "", tech: "", devpost: "" },
-      { track: "HEADSTARTER TRACK", place: "1st", project: "Repofy", team: "", tech: "", devpost: "" },
-      { track: "HEADSTARTER TRACK", place: "2nd", project: "GitProfile", team: "", tech: "", devpost: "" },
-      { track: "HEADSTARTER TRACK", place: "3rd", project: "GitHire", team: "", tech: "", devpost: "" },
-      { track: "FAN FAVORITE", place: "", project: "GitHire", team: "", tech: "", devpost: "" },
+      { track: "TOLTIQ TRACK", place: "1st", project: "SlideGen AI", team: "", tech: "", devpost: "", image: "" },
+      { track: "TOLTIQ TRACK", place: "2nd", project: "Sliders", team: "", tech: "", devpost: "", image: "" },
+      { track: "TOLTIQ TRACK", place: "3rd", project: "AdaptIQ", team: "", tech: "", devpost: "", image: "" },
+      { track: "HEADSTARTER TRACK", place: "1st", project: "Repofy", team: "", tech: "", devpost: "", image: "" },
+      { track: "HEADSTARTER TRACK", place: "2nd", project: "GitProfile", team: "", tech: "", devpost: "", image: "" },
+      { track: "HEADSTARTER TRACK", place: "3rd", project: "GitHire", team: "", tech: "", devpost: "", image: "" },
+      { track: "FAN FAVORITE", place: "", project: "GitHire", team: "", tech: "", devpost: "", image: "" },
     ],
     sponsors: [
       { name: "ToltIQ", year: 2026 },

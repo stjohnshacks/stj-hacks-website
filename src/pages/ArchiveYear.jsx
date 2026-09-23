@@ -47,6 +47,11 @@ export default function ArchiveYear() {
             </Reveal>
             <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
               <p className="text-lg text-sju-grey leading-relaxed">{event.recap}</p>
+              {event.recapUrl && (
+                <a href={event.recapUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.15em] font-bold text-sju-red hover:text-sju-red-bright transition-colors">
+                  Read the St. John's University Recap <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
             </Reveal>
           </div>
         </div>
@@ -57,10 +62,10 @@ export default function ArchiveYear() {
         <div className="absolute inset-0 grid-bg-dark opacity-40" />
         <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
           <SectionLabel index="02" dark className="mb-12">By the Numbers</SectionLabel>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10">
+          <div className="flex flex-wrap gap-px bg-white/10">
             {event.stats.map((s, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <div className="bg-sju-void p-8 lg:p-12 text-center">
+              <Reveal key={i} delay={i * 0.08} className="flex-1 min-w-[150px]">
+                <div className="bg-sju-void p-8 lg:p-12 text-center h-full">
                   <div className="display-text text-7xl sm:text-8xl lg:text-9xl text-sju-red">
                     <CountUp value={s.value} />
                   </div>
