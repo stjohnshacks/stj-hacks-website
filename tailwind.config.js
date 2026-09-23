@@ -60,6 +60,17 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			sju: {
+  				red: '#D71920',
+  				'red-bright': '#FF1B23',
+  				void: '#0A0A0A',
+  				paper: '#FFFFFF',
+  				grey: '#333333',
+  				'n1': '#F7F7F7',
+  				'n2': '#EEEEEE',
+  				'n3': '#D9D9D9',
+  				'n4': '#777777'
   			}
   		},
   		fontFamily: {
@@ -67,6 +78,9 @@ module.exports = {
   			body: ['var(--font-body)'],
   			display: ['var(--font-display)'],
   			mono: ['var(--font-mono)']
+  		},
+  		letterSpacing: {
+  			'tightest': '-0.04em',
   		},
   		keyframes: {
   			'accordion-down': {

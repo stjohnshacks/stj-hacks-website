@@ -7,6 +7,17 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 // Add page imports here
+import Layout from '@/components/Layout';
+import Home from '@/pages/Home';
+import About from '@/pages/About';
+import Event2027 from '@/pages/Event2027';
+import Schedule from '@/pages/Schedule';
+import Tracks from '@/pages/Tracks';
+import PastEvents from '@/pages/PastEvents';
+import ArchiveYear from '@/pages/ArchiveYear';
+import Sponsors from '@/pages/Sponsors';
+import Team from '@/pages/Team';
+import Faq from '@/pages/Faq';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -34,7 +45,18 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      {/* Add your page Route elements here */}
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/2027" element={<Event2027 />} />
+        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/tracks" element={<Tracks />} />
+        <Route path="/past-events" element={<PastEvents />} />
+        <Route path="/past-events/:year" element={<ArchiveYear />} />
+        <Route path="/sponsors" element={<Sponsors />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/faq" element={<Faq />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
