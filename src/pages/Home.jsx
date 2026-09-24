@@ -264,7 +264,7 @@ function EventCard({ event }) {
     <Reveal>
       <Link to={`/past-events/${event.year}`} className="group block relative overflow-hidden bg-sju-void text-white h-[460px] sm:h-[540px]">
         <img
-          src={event.heroImage}
+          src={event.cardImage || event.heroImage}
           alt=""
           className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
         />
