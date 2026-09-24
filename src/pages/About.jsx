@@ -3,7 +3,6 @@ import PageHero from "@/components/PageHero";
 import Reveal, { SectionLabel } from "@/components/Reveal";
 import Button from "@/components/ui/stj-button";
 import { site, pastEvents } from "@/data/site";
-import Logo from "@/components/Logo";
 
 const timeline = [
   {
@@ -106,7 +105,9 @@ export default function About() {
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             <Reveal className="lg:w-2/5 flex justify-center">
-              <Logo className="w-full max-w-[340px] aspect-[3/4] p-6 sm:p-8 border border-sju-n3" imgClassName="h-full w-full" alt="St. John's Hacks official logo — Johnny Thunderbird framed in curly braces above the St. John's Hacks wordmark" />
+              <div className="bg-white p-6 sm:p-8 border border-sju-n3">
+                <img src={site.logo} alt="St. John's Hacks official logo — Johnny Thunderbird framed in curly braces above the St. John's Hacks wordmark" className="w-full max-w-[320px] h-auto object-contain" />
+              </div>
             </Reveal>
             <Reveal delay={0.1} className="lg:w-3/5">
               <SectionLabel index="—" className="mb-4">The Mark</SectionLabel>

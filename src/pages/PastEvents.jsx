@@ -30,7 +30,7 @@ export default function PastEvents() {
                   className="group block relative overflow-hidden bg-sju-void text-white h-[420px] sm:h-[520px]"
                 >
                   <img
-                    src={event.cardImage || event.heroImage}
+                    src={event.heroImage}
                     alt=""
                     className="absolute inset-0 w-full h-full object-cover opacity-45 group-hover:opacity-35 group-hover:scale-105 transition-all duration-700"
                   />
