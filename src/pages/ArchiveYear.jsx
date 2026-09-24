@@ -140,6 +140,11 @@ export default function ArchiveYear() {
                 <Reveal key={track} delay={i * 0.05}>
                   <div>
                     <h3 className="display-text text-3xl sm:text-4xl text-sju-red mb-6 border-l-4 border-sju-red pl-4">{track}</h3>
+                    {event.trackPhotos?.[track] && (
+                      <div className="mb-6 aspect-[16/9] overflow-hidden bg-sju-void">
+                        <img src={event.trackPhotos[track]} alt={`${track} winners at St. John's Hacks ${event.year}`} className="w-full h-full object-cover" loading="lazy" />
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-sju-n3 border border-sju-n3">
                       {winners.map((w) => (
                         <div key={w.project + w.place} className="bg-white p-6 group hover:bg-sju-n1 transition-colors">

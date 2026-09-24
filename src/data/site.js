@@ -157,14 +157,17 @@ export const pastEvents = [
       { value: "2–4", label: "PER TEAM" },
     ],
     winners: [
-      { track: "TOLTIQ TRACK", place: "1st", project: "SlideGen AI", team: "", tech: "", devpost: "", image: photoBase + "02d7186ea_IMG_6931_copy.jpeg" },
+      { track: "TOLTIQ TRACK", place: "1st", project: "SlideGen AI", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/73419f18c_slidegenAIwinners.jpeg" },
       { track: "TOLTIQ TRACK", place: "2nd", project: "Sliders", team: "", tech: "", devpost: "", image: "" },
       { track: "TOLTIQ TRACK", place: "3rd", project: "AdaptIQ", team: "", tech: "", devpost: "", image: photoBase + "4e32be285_DSC_0495_copy.JPG" },
-      { track: "HEADSTARTER TRACK", place: "1st", project: "Repofy", team: "", tech: "", devpost: "", image: photoBase + "a38d69b06_IMG_6942_copy.jpeg" },
+      { track: "HEADSTARTER TRACK", place: "1st", project: "Repofy", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/843277813_repoifywinners.jpeg" },
       { track: "HEADSTARTER TRACK", place: "2nd", project: "GitProfile", team: "", tech: "", devpost: "", image: "" },
-      { track: "HEADSTARTER TRACK", place: "3rd", project: "GitHire", team: "", tech: "", devpost: "", image: photoBase + "05ba5396a_IMG_6959_copy.jpeg" },
-      { track: "FAN FAVORITE", place: "", project: "GitHire", team: "", tech: "", devpost: "", image: photoBase + "05ba5396a_IMG_6959_copy.jpeg" },
+      { track: "HEADSTARTER TRACK", place: "3rd", project: "GitHire", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/36b26baea_githirewinners.jpeg" },
+      { track: "FAN FAVORITE", place: "", project: "GitHire", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/bc204cd67_fanfavoritetrack.JPG" },
     ],
+    trackPhotos: {
+      "HEADSTARTER TRACK": "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5cc5673bf_headstartertrack.JPG",
+    },
     photos: {
       atmosphere: [
         { src: photoBase + "fd3e8ecc6_DSC_0189_copy.JPG", alt: "Students at a workshop during St. John's Hacks 2026" },
@@ -227,7 +230,10 @@ export const pastEvents = [
       { value: "1", label: "DAY" },
       { value: "01", label: "THE FIRST ST. JOHN'S HACKS" },
     ],
-    winners: [],
+    winners: [
+      { track: "MASPETH FEDERAL SAVINGS", place: "Track Winner", project: "Maspeth Federal Savings", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/76d25e95d_maspethwinners.JPG" },
+      { track: "ST. JOHN'S UNIVERSITY", place: "Track Winner", project: "St. John's University", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/8e624b5ae_stjohnstrack.JPG" },
+    ],
     sponsors: [
       { name: "Headstarter", year: 2025 },
       { name: "Maspeth Federal Savings", year: 2025 },
