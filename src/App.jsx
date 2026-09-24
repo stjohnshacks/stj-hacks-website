@@ -18,6 +18,7 @@ import ArchiveYear from '@/pages/ArchiveYear';
 import Sponsors from '@/pages/Sponsors';
 import Team from '@/pages/Team';
 import Faq from '@/pages/Faq';
+import Apply from '@/pages/Apply';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -56,6 +57,7 @@ const AuthenticatedApp = () => {
         <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/team" element={<Team />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/apply" element={<Apply />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

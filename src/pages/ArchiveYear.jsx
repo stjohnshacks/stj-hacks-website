@@ -97,7 +97,7 @@ export default function ArchiveYear() {
       {photos.atmosphere?.length > 0 && (
         <section className="py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-            <SectionLabel index="03" className="mb-10">Event Atmosphere</SectionLabel>
+            <SectionLabel index="03" className="mb-10">Workshops & Presentations</SectionLabel>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4">
               <Reveal className="lg:col-span-7">
                 <Photo src={photos.atmosphere[0].src} alt={photos.atmosphere[0].alt} className="aspect-[4/3] lg:aspect-auto lg:h-full" imgClassName="hover:scale-105 transition-transform duration-700" />
@@ -114,11 +114,28 @@ export default function ArchiveYear() {
         </section>
       )}
 
+      {/* JOHNNY THUNDERBIRD / SCHOOL SPIRIT */}
+      {photos.johnny?.length > 0 && (
+        <section className="py-24 lg:py-32 bg-sju-void text-white relative overflow-hidden">
+          <div className="absolute inset-0 grid-bg-dark opacity-30" />
+          <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+            <SectionLabel index="04" dark className="mb-10">Johnny Thunderbird · School Spirit</SectionLabel>
+            <div className="grid grid-cols-1 gap-3 lg:gap-4">
+              {photos.johnny.map((ph, i) => (
+                <Reveal key={ph.id || i} delay={0.05} className="aspect-[16/9] lg:aspect-[21/9]">
+                  <Photo src={ph.src} alt={ph.alt} className="w-full h-full" imgClassName="hover:scale-105 transition-transform duration-700" />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* TEAMS & COMMUNITY */}
       {photos.community?.length > 0 && (
         <section className="py-24 lg:py-32 bg-sju-n1 border-y border-sju-n3">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-            <SectionLabel index="04" className="mb-10">Teams & Community</SectionLabel>
+            <SectionLabel index="05" className="mb-10">Teams & Community</SectionLabel>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-4">
               {photos.community.map((p, i) => (
                 <Reveal key={i} delay={i * 0.06} className={cn("aspect-[4/3]", communitySpans[i % communitySpans.length])}>
@@ -134,7 +151,7 @@ export default function ArchiveYear() {
       {event.winners.length > 0 && (
         <section className="py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-            <SectionLabel index="05" className="mb-12">Winning Projects</SectionLabel>
+            <SectionLabel index="06" className="mb-12">Winning Projects</SectionLabel>
             <div className="space-y-12">
               {Object.entries(winnerTracks).map(([track, winners], i) => (
                 <Reveal key={track} delay={i * 0.05}>
@@ -173,18 +190,24 @@ export default function ArchiveYear() {
         </section>
       )}
 
-      {/* ORGANIZERS & COMMUNITY */}
+      {/* ORGANIZERS */}
       {photos.organizers?.length > 0 && (
         <section className="py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-            <SectionLabel index="06" className="mb-10">Organizers & Community</SectionLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-4">
-              {photos.organizers.map((p, i) => (
-                <Reveal key={i} delay={i * 0.05} className={cn("aspect-[4/3]", organizerSpans[i % organizerSpans.length])}>
-                  <Photo src={p.src} alt={p.alt} className="w-full h-full" imgClassName="hover:scale-105 transition-transform duration-700" />
-                </Reveal>
-              ))}
-            </div>
+            <SectionLabel index="07" className="mb-10">Organizers</SectionLabel>
+            {photos.organizers.length === 1 ? (
+              <Reveal>
+                <Photo src={photos.organizers[0].src} alt={photos.organizers[0].alt} className="aspect-[16/9] lg:aspect-[21/9]" imgClassName="hover:scale-105 transition-transform duration-700" />
+              </Reveal>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-4">
+                {photos.organizers.map((p, i) => (
+                  <Reveal key={i} delay={i * 0.05} className={cn("aspect-[4/3]", organizerSpans[i % organizerSpans.length])}>
+                    <Photo src={p.src} alt={p.alt} className="w-full h-full" imgClassName="hover:scale-105 transition-transform duration-700" />
+                  </Reveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -193,7 +216,7 @@ export default function ArchiveYear() {
       {event.sponsors.length > 0 && (
         <section className="py-24 lg:py-32 bg-sju-n1 border-y border-sju-n3">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-            <SectionLabel index="07" className="mb-10">{event.year} Sponsors & Supporters</SectionLabel>
+            <SectionLabel index="08" className="mb-10">{event.year} Sponsors & Supporters</SectionLabel>
             <Reveal>
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-sju-red mb-8">
                 Historical {event.year} sponsors / supporters
@@ -216,7 +239,7 @@ export default function ArchiveYear() {
       {photos.gallery?.length > 0 && (
         <section className="py-24 lg:py-32 bg-sju-void text-white">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-            <SectionLabel index="08" dark className="mb-12">Gallery</SectionLabel>
+            <SectionLabel index="09" dark className="mb-12">Gallery</SectionLabel>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
               {photos.gallery.map((p, i) => (
                 <Reveal key={i} delay={(i % 3) * 0.06} className={cn(p.wide ? "sm:col-span-2 lg:col-span-4" : "lg:col-span-2")}>

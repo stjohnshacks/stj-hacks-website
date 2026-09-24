@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/PageHero";
 import Reveal, { SectionLabel } from "@/components/Reveal";
-import { faq } from "@/data/site";
+import { faq, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 function Accordion({ q, a, index }) {
@@ -75,7 +75,7 @@ export default function Faq() {
               <div className="relative">
                 <h3 className="display-text text-3xl sm:text-4xl mb-3">STILL HAVE QUESTIONS?</h3>
                 <p className="text-white/60 mb-4">Reach out — we're happy to help.</p>
-                <a href="mailto:team@stjohnshacks.com" className="font-mono text-sm uppercase tracking-[0.15em] text-sju-red hover:underline">team@stjohnshacks.com →</a>
+                <a href={`mailto:${site.contactEmail}`} className="font-mono text-sm uppercase tracking-[0.15em] text-sju-red hover:underline">{site.contactEmail} →</a>
               </div>
             </div>
           </Reveal>

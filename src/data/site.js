@@ -3,6 +3,8 @@
 // Organizers: update this file to change site content. No code edits needed.
 // ===================================================================
 
+import { getHeroPhoto, getCardPhoto, photosFor } from "@/data/photos";
+
 // Hosted event photography base URL (extracted from organizer uploads).
 const photoBase = "https://base44.app/api/apps/6ab416dccb1b0eada1dceb29/files/mp/public/6ab416dccb1b0eada1dceb29/";
 
@@ -25,8 +27,34 @@ export const site = {
     devpost: "https://devpost.com/stjohnshacks",
     acm: "https://stjohns.edu/acm",
   },
-  contactEmail: "team@stjohnshacks.com",
+  contactEmail: "stjohnshacks@gmail.com",
   footerNote: "{ built with caffeine, curiosity & questionable sleep schedules }",
+};
+
+// --- Application (centralized) ---
+// One source of truth for every APPLY button across the site (navbar,
+// homepage, /2027, mobile nav, footer CTA, /apply). Do not hardcode Apply
+// URLs into individual buttons — read them from here.
+//
+// status: "open" | "coming_soon" | "closed"
+//   - "open"        → APPLY is active and links to the form
+//   - "coming_soon" → shows "APPLICATIONS COMING SOON", links nowhere
+//   - "closed"      → shows "APPLICATIONS CLOSED"
+//
+// GOOGLE FORM SETUP — paste your links below:
+//   url      → MODE 1 (external): clicking APPLY opens this in a new tab.
+//               Use the Google Form "Send" → link URL (https://forms.gle/…
+//               or the full form URL).
+//   embedUrl → MODE 2 (embedded): the /apply page embeds this in a
+//               responsive iframe. In Google Forms: Send → the < > embed
+//               icon → copy the src URL
+//               (https://docs.google.com/forms/d/e/…/viewform?embedded=true).
+// Until you paste a URL here, APPLY displays "APPLICATIONS COMING SOON"
+// and links nowhere.
+export const application = {
+  status: "coming_soon",
+  url: "",      // ← paste external Google Form URL here (MODE 1)
+  embedUrl: "", // ← paste Google Form embed URL here (MODE 2)
 };
 
 // --- Current Event (2027) ---
@@ -40,8 +68,6 @@ export const currentEvent = {
   venue: "St. John's University",
   location: "Queens, New York",
   duration: "MULTI-DAY",
-  applicationStatus: "soon",
-  applicationUrl: "",
   techLine: "{ the next chapter }",
   overview:
     "St. John's Hacks '27 is the next chapter of St. John's University's student-led hackathon — a multi-day experience built for students who want to experiment, collaborate, and ship something real.",
@@ -146,8 +172,8 @@ export const pastEvents = [
     days: "2 DAYS",
     teamSize: "2–4",
     recapUrl: "https://www.stjohns.edu/news-media/news/2026-02-23/hackathon-invites-st-johns-students-build-code-and-innovate",
-    heroImage: photoBase + "df7d9621f_DSC_0037_copy.JPG",
-    cardImage: photoBase + "9578129b7_DSC_0371_copy.JPG",
+    heroImage: getHeroPhoto(2026)?.src,
+    cardImage: getCardPhoto(2026)?.src,
     recap:
       "The second annual St. John's Hacks grew from a one-day event into a two-day, 30-hour build at St. Augustine Hall. More than 60 undergraduates, graduate students, and recent alumni — across all experience levels, including first-time builders — collaborated on projects spanning artificial intelligence, cybersecurity, machine learning, and software development. The weekend paired hands-on building with workshops, mentorship, sponsor challenges, presentations, judging, and prizes, plus a visit from Johnny Thunderbird.",
     stats: [
@@ -169,38 +195,11 @@ export const pastEvents = [
       "HEADSTARTER TRACK": "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5cc5673bf_headstartertrack.JPG",
     },
     photos: {
-      atmosphere: [
-        { src: photoBase + "fd3e8ecc6_DSC_0189_copy.JPG", alt: "Students at a workshop during St. John's Hacks 2026" },
-        { src: photoBase + "9039e892f_DSC_0201_copy.JPG", alt: "Workshop at St. John's Hacks 2026" },
-        { src: photoBase + "2ec45e75f_DSC_0211_copy.JPG", alt: "Event atmosphere at St. John's Hacks 2026" },
-      ],
-      community: [
-        { src: photoBase + "9432071a0_DSC_0394_copy.JPG", alt: "Johnny Thunderbird at St. John's Hacks 2026" },
-        { src: photoBase + "9578129b7_DSC_0371_copy.JPG", alt: "Johnny Thunderbird with attendees at St. John's Hacks 2026" },
-        { src: photoBase + "f436204f4_DSC_0308_copy.JPG", alt: "Students at St. John's Hacks 2026" },
-        { src: photoBase + "24a62ddbb_DSC_0493_copy.JPG", alt: "A team at St. John's Hacks 2026" },
-        { src: photoBase + "ba37bd3c7_DSC_0499_copy.JPG", alt: "Presentations at St. John's Hacks 2026" },
-      ],
-      organizers: [
-        { src: photoBase + "26b52a370_DSC_0121_copy.JPG", alt: "Organizers at St. John's Hacks 2026" },
-        { src: photoBase + "b8a2a3b6c_DSC_0025_copy.JPG", alt: "Community moment at St. John's Hacks 2026" },
-        { src: photoBase + "5285901eb_DSC_0027_copy.JPG", alt: "Community moment at St. John's Hacks 2026" },
-        { src: photoBase + "f4272e292_DSC_0504_copy.JPG", alt: "Community moment at St. John's Hacks 2026" },
-        { src: photoBase + "954de7478_DSC_0516_copy.JPG", alt: "Community moment at St. John's Hacks 2026" },
-        { src: photoBase + "3ad17a956_DSC_0519_copy.JPG", alt: "Community moment at St. John's Hacks 2026" },
-        { src: photoBase + "505d32102_DSC_0525_copy.JPG", alt: "Community moment at St. John's Hacks 2026" },
-      ],
-      gallery: [
-        { src: photoBase + "df7d9621f_DSC_0037_copy.JPG", alt: "St. John's Hacks 2026", wide: true },
-        { src: photoBase + "9578129b7_DSC_0371_copy.JPG", alt: "Johnny Thunderbird with attendees at St. John's Hacks 2026" },
-        { src: photoBase + "f436204f4_DSC_0308_copy.JPG", alt: "Students at St. John's Hacks 2026" },
-        { src: photoBase + "f4272e292_DSC_0504_copy.JPG", alt: "St. John's Hacks 2026", wide: true },
-        { src: photoBase + "24a62ddbb_DSC_0493_copy.JPG", alt: "A team at St. John's Hacks 2026" },
-        { src: photoBase + "ba37bd3c7_DSC_0499_copy.JPG", alt: "Presentations at St. John's Hacks 2026" },
-        { src: photoBase + "954de7478_DSC_0516_copy.JPG", alt: "St. John's Hacks 2026" },
-        { src: photoBase + "3ad17a956_DSC_0519_copy.JPG", alt: "St. John's Hacks 2026", wide: true },
-        { src: photoBase + "b8a2a3b6c_DSC_0025_copy.JPG", alt: "St. John's Hacks 2026" },
-      ],
+      atmosphere: photosFor(2026, "workshops"),
+      johnny: photosFor(2026, "johnny"),
+      community: photosFor(2026, "community"),
+      organizers: photosFor(2026, "organizers"),
+      gallery: photosFor(2026, "gallery"),
     },
     sponsors: [
       { name: "ToltIQ", year: 2026 },
@@ -222,7 +221,8 @@ export const pastEvents = [
     duration: "12 HOURS",
     attendance: "",
     days: "1 DAY",
-    heroImage: photoBase + "fd7a12ed8_IMG_8590_copy.JPG",
+    heroImage: getHeroPhoto(2025)?.src,
+    cardImage: getCardPhoto(2025)?.src,
     recap:
       "The inaugural St. John's Hacks launched as a one-day, 12-hour hackathon at St. Augustine Hall — beginner-friendly and built for first-time builders. Students came together to attend workshops, form teams, build projects, and present their work to mentors and judges. It was the start of something bigger.",
     stats: [
@@ -231,8 +231,8 @@ export const pastEvents = [
       { value: "01", label: "THE FIRST ST. JOHN'S HACKS" },
     ],
     winners: [
-      { track: "MASPETH FEDERAL SAVINGS", place: "Track Winner", project: "Maspeth Federal Savings", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/76d25e95d_maspethwinners.JPG" },
-      { track: "ST. JOHN'S UNIVERSITY", place: "Track Winner", project: "St. John's University", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/8e624b5ae_stjohnstrack.JPG" },
+      { track: "MASPETH FEDERAL SAVINGS TRACK", place: "Track Winner", project: "Winning Team", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/76d25e95d_maspethwinners.JPG" },
+      { track: "ST. JOHN'S UNIVERSITY TRACK", place: "Track Winner", project: "Winning Team", team: "", tech: "", devpost: "", image: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/8e624b5ae_stjohnstrack.JPG" },
     ],
     sponsors: [
       { name: "Headstarter", year: 2025 },
@@ -240,38 +240,8 @@ export const pastEvents = [
       { name: "St. John's University", year: 2025 },
     ],
     photos: {
-      atmosphere: [
-        { src: photoBase + "7ffca2e38_IMG_2568_copy.JPG", alt: "Students attending a presentation at St. John's Hacks 2025" },
-        { src: photoBase + "a8fd05954_IMG_2585_copy.JPG", alt: "Participants at St. John's Hacks 2025" },
-        { src: photoBase + "9b1cfeb16_IMG_2638_copy.JPG", alt: "Event atmosphere at St. John's Hacks 2025" },
-      ],
-      community: [
-        { src: photoBase + "c1208f9ff_IMG_2676_copy.JPG", alt: "A team presenting their project at St. John's Hacks 2025" },
-        { src: photoBase + "1fff69d4d_IMG_2680_copy.JPG", alt: "Students collaborating at St. John's Hacks 2025" },
-        { src: photoBase + "47a79885e_IMG_2681_copy.JPG", alt: "Hackathon participants at St. John's Hacks 2025" },
-        { src: photoBase + "0fb3fc9f3_IMG_2685_copy.JPG", alt: "Project showcase at St. John's Hacks 2025" },
-        { src: photoBase + "6e69a6b95_IMG_2687_copy.JPG", alt: "Teams at St. John's Hacks 2025" },
-      ],
-      organizers: [
-        { src: photoBase + "4e3e228c4_IMG_2567_copy.JPG", alt: "Organizers and community at St. John's Hacks 2025" },
-        { src: photoBase + "3254c2379_IMG_5139_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
-        { src: photoBase + "01a22674a_IMG_5151_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
-        { src: photoBase + "9e724026b_IMG_5187_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
-        { src: photoBase + "b4f5f35ba_IMG_5211_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
-        { src: photoBase + "c983d4eb2_IMG_5230_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
-        { src: photoBase + "916fd4ebb_IMG_5233_copy.jpg", alt: "Community moment at St. John's Hacks 2025" },
-      ],
-      gallery: [
-        { src: photoBase + "5f33727e1_IMG_8583_copy.JPG", alt: "Large group photo from St. John's Hacks 2025", wide: true },
-        { src: photoBase + "7ffca2e38_IMG_2568_copy.JPG", alt: "Students at a presentation at St. John's Hacks 2025" },
-        { src: photoBase + "c1208f9ff_IMG_2676_copy.JPG", alt: "A team presenting their project at St. John's Hacks 2025" },
-        { src: photoBase + "47a79885e_IMG_2681_copy.JPG", alt: "Hackathon participants at St. John's Hacks 2025", wide: true },
-        { src: photoBase + "102369f0e_IMG_2571_copy.JPG", alt: "St. John's Hacks 2025" },
-        { src: photoBase + "bab6dcdde_IMG_2577_copy.JPG", alt: "St. John's Hacks 2025" },
-        { src: photoBase + "1fff69d4d_IMG_2680_copy.JPG", alt: "Students collaborating at St. John's Hacks 2025" },
-        { src: photoBase + "6e69a6b95_IMG_2687_copy.JPG", alt: "Teams at St. John's Hacks 2025" },
-        { src: photoBase + "fd7a12ed8_IMG_8590_copy.JPG", alt: "Students gathered at the inaugural St. John's Hacks in 2025", wide: true },
-      ],
+      atmosphere: photosFor(2025, "presentations"),
+      gallery: photosFor(2025, "gallery"),
     },
     devpost: "",
     instagram: "",
@@ -289,7 +259,7 @@ export const projects = [
     team: "",
     tech: ["AI", "LLM", "Slides"],
     devpost: "",
-    screenshot: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/f91aa07eb_generated_179ffd14.jpg",
+    screenshot: "",
   },
   {
     title: "Repofy",
@@ -298,7 +268,7 @@ export const projects = [
     team: "",
     tech: ["Full Stack", "GitHub API"],
     devpost: "",
-    screenshot: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/7790d8128_generated_e2ed93db.jpg",
+    screenshot: "",
   },
   {
     title: "GitHire",
@@ -307,7 +277,7 @@ export const projects = [
     team: "",
     tech: ["Full Stack", "Recruiting"],
     devpost: "",
-    screenshot: "https://media.base44.com/images/public/6ab416dccb1b0eada1dceb29/5f0d83d50_generated_493bca06.jpg",
+    screenshot: "",
   },
 ];
 

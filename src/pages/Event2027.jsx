@@ -3,17 +3,11 @@ import PageHero from "@/components/PageHero";
 import Reveal, { SectionLabel } from "@/components/Reveal";
 import Button from "@/components/ui/stj-button";
 import CountUp from "@/components/CountUp";
-import { currentEvent, schedule } from "@/data/site";
-
-const statusMap = {
-  open: { label: "APPLICATIONS OPEN", cta: "Apply Now", variant: "primary" },
-  soon: { label: "APPLICATIONS COMING SOON", cta: "Get Notified", variant: "dark" },
-  closed: { label: "APPLICATIONS CLOSED", cta: "View Past Events", variant: "outline" },
-  waitlist: { label: "WAITLIST OPEN", cta: "Join Waitlist", variant: "primary" },
-};
+import { currentEvent, schedule, application } from "@/data/site";
+import ApplyButton, { APPLICATION_LABELS } from "@/components/ApplyButton";
 
 export default function Event2027() {
-  const status = statusMap[currentEvent.applicationStatus] || statusMap.soon;
+  const statusLabel = APPLICATION_LABELS[application.status] || APPLICATION_LABELS.coming_soon;
   const previewItems = schedule.items.slice(0, 5);
 
   return (
@@ -145,7 +139,7 @@ export default function Event2027() {
           <SectionLabel index="06" dark className="mb-8 justify-center">Registration</SectionLabel>
           <Reveal>
             <div className="inline-block font-mono text-sm uppercase tracking-[0.2em] text-sju-red border border-sju-red px-4 py-2 mb-8">
-              {status.label}
+              {statusLabel}
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -155,7 +149,7 @@ export default function Event2027() {
           </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-12 flex justify-center">
-              <Button to="/2027" variant="primary" className="text-base">{status.cta}</Button>
+              <ApplyButton variant="primary" className="text-base" />
             </div>
           </Reveal>
         </div>

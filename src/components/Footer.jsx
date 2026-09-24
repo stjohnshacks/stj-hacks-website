@@ -26,8 +26,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-5">
             <Link to="/" className="group inline-block">
-              <div className="bg-white p-3 sm:p-4 mb-4 inline-block">
-                <img src={site.logo} alt="St. John's Hacks official logo — Johnny Thunderbird framed in curly braces" className="w-auto h-16 sm:h-20 object-contain" />
+              <div className="bg-white p-3 sm:p-4 mb-4 inline-block overflow-hidden">
+                <img src={site.logo} alt="St. John's Hacks official logo — Johnny Thunderbird framed in curly braces" className="w-auto h-16 sm:h-20 object-contain scale-110" />
               </div>
               <div className="font-mono text-xs uppercase tracking-[0.2em] text-sju-red">
                 {site.compactMark}

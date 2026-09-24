@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { nav, navMore, site } from "@/data/site";
+import ApplyButton from "@/components/ApplyButton";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -100,12 +101,7 @@ export default function Navbar() {
 
           {/* Right: Apply + mobile toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/2027"
-              className="hidden sm:inline-flex bg-sju-red text-white font-mono text-xs uppercase tracking-[0.15em] font-bold px-5 py-2.5 hover:bg-sju-red-bright transition-colors"
-            >
-              Apply
-            </Link>
+            <ApplyButton variant="primary" className="hidden sm:inline-flex px-5 py-2.5" />
             <button
               className="lg:hidden flex flex-col gap-1.5 p-2 -mr-2"
               onClick={() => setMobileOpen(true)}
@@ -158,12 +154,7 @@ export default function Navbar() {
                   </motion.div>
                 ))}
               </nav>
-              <Link
-                to="/2027"
-                className="mt-10 inline-flex w-full justify-center items-center gap-2 bg-sju-void text-white font-mono text-sm uppercase tracking-[0.15em] font-bold px-6 py-4"
-              >
-                Apply →
-              </Link>
+              <ApplyButton variant="dark" fullWidth className="mt-10 py-4 text-sm" />
               <div className="mt-10 font-mono text-xs uppercase tracking-[0.2em] text-white/50">
                 {site.university} · {site.location}
               </div>

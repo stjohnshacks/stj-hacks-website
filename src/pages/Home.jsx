@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { site, currentEvent, pastEvents, projects } from "@/data/site";
+import { photoBy } from "@/data/photos";
 import Button from "@/components/ui/stj-button";
+import ApplyButton from "@/components/ApplyButton";
 import Reveal, { SectionLabel, Cursor } from "@/components/Reveal";
 import Mascot from "@/components/Mascot";
 import CountUp from "@/components/CountUp";
@@ -34,69 +36,79 @@ export default function Home() {
 }
 
 function Hero() {
+  const heroPhoto = photoBy(2026, "homepage-hero");
   return (
     <section className="relative min-h-[100svh] bg-sju-void text-white overflow-hidden flex items-center">
-      <div className="absolute inset-0 grid-bg-dark opacity-40" />
-      {/* atmospheric image */}
-      <div className="absolute inset-0 opacity-30">
-        <img
-          src="https://base44.app/api/apps/6ab416dccb1b0eada1dceb29/files/mp/public/6ab416dccb1b0eada1dceb29/47a79885e_IMG_2681_copy.JPG"
-          alt="Students collaborating at St. John's Hacks"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-sju-void via-sju-void/80 to-sju-void/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-sju-void via-transparent to-sju-void/60" />
-      </div>
+      <div className="absolute inset-0 grid-bg-dark opacity-25" />
+      {/* faint red grid intersections */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, rgba(215,25,32,0.10) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-sju-red/50" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-sju-red/20" />
 
-      {/* Johnny between braces */}
-      <div className="absolute right-4 sm:right-10 lg:right-20 top-1/2 -translate-y-1/2 hidden md:block opacity-70">
-        <Mascot className="w-40 lg:w-64 h-auto" />
-      </div>
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 w-full pt-28 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="font-mono text-xs uppercase tracking-[0.25em] text-sju-red mb-6"
+            >
+              St. John's University Presents
+            </motion.div>
 
-      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 w-full pt-24 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="font-mono text-xs uppercase tracking-[0.25em] text-sju-red mb-6"
-        >
-          St. John's University Presents
-        </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="display-text text-[20vw] sm:text-[15vw] lg:text-[10.5vw] leading-[0.82]"
+            >
+              ST.<br />JOHN'S<br /><span className="text-sju-red">HACKS</span>
+            </motion.h1>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="display-text text-[18vw] sm:text-[15vw] lg:text-[12vw] leading-[0.85]"
-        >
-          ST. JOHN'S<br />
-          <span className="text-sju-red">HACKS</span>
-          <span className="text-white/30 text-[0.4em] align-top ml-2 font-mono">'27</span>
-        </motion.h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-sm"
+            >
+              <span className="text-sju-red">&#123; build something real &#125;</span>
+              <span className="text-white/40">|</span>
+              <span className="text-white/80">{currentEvent.season}</span>
+              <span className="text-white/40">|</span>
+              <span className="text-white/80">{currentEvent.location}</span>
+              <Cursor />
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-sm"
-        >
-          <span className="text-sju-red">&#123; build something real &#125;</span>
-          <span className="text-white/40">|</span>
-          <span className="text-white/80">{currentEvent.season}</span>
-          <span className="text-white/40">|</span>
-          <span className="text-white/80">{currentEvent.location}</span>
-          <Cursor />
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="mt-10 flex flex-wrap gap-4"
+            >
+              <ApplyButton variant="primary" />
+              <Button to="/2027" variant="outlineLight">Explore 2027</Button>
+            </motion.div>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
-          className="mt-10 flex flex-wrap gap-4"
-        >
-          <Button to="/2027" variant="primary">Apply</Button>
-          <Button to="/2027" variant="outlineLight">Explore 2027</Button>
-        </motion.div>
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] overflow-hidden border border-white/10"
+            >
+              {heroPhoto ? (
+                <img src={heroPhoto.src} alt={heroPhoto.alt} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full grid-bg-dark" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-sju-void/60 via-transparent to-transparent" />
+              <div className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80 bg-sju-void/50 px-2 py-1">{"> "}stj_hacks_2026</div>
+              <div className="absolute bottom-3 right-3 font-mono text-[10px] uppercase tracking-[0.2em] text-sju-red">/ archive</div>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* scroll hint */}
@@ -307,10 +319,12 @@ function ProjectsPreview() {
           {projects.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.08}>
               <div className="group border border-sju-n3 hover:border-sju-red transition-colors">
-                <div className="relative aspect-[4/3] overflow-hidden bg-sju-void">
-                  <img src={p.screenshot} alt={p.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-3 left-3 font-mono text-xs text-white bg-sju-red px-2 py-1">{p.year}</div>
-                </div>
+                {p.screenshot && (
+                  <div className="relative aspect-[4/3] overflow-hidden bg-sju-void">
+                    <img src={p.screenshot} alt={p.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute top-3 left-3 font-mono text-xs text-white bg-sju-red px-2 py-1">{p.year}</div>
+                  </div>
+                )}
                 <div className="p-5">
                   <h3 className="font-display font-bold text-2xl mb-1">{p.title}</h3>
                   <p className="font-mono text-xs uppercase tracking-[0.15em] text-sju-red mb-3">{p.award}</p>
@@ -372,7 +386,7 @@ function FinalCTA() {
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-12 flex justify-center">
-            <Button to="/2027" variant="primary" className="text-base">Apply to St. John's Hacks</Button>
+            <ApplyButton variant="primary" className="text-base" />
           </div>
         </Reveal>
       </div>
